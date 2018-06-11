@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">LiteMusic</string>
+    <string name="app_about">关于我们</string>
+    <string name="app_setup">设置</string>
+    <string name="app_tab_music">音乐</string>
+    <string name="app_tab_me">我的</string>
+    <string name="app_tab_discovery">发现</string>
+</resources>
