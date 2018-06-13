@@ -26,6 +26,7 @@ public abstract class BaseActivity<T extends BasePresenter> extends AppCompatAct
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
         if (mToolbar != null) {
             setSupportActionBar(mToolbar);
+            getSupportActionBar().setDisplayShowTitleEnabled(false);
         }
     }
 

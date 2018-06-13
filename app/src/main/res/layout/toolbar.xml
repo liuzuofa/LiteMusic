@@ -5,7 +5,36 @@
     android:layout_width="match_parent"
     android:layout_height="?attr/actionBarSize"
     android:background="?attr/colorPrimary"
+    android:orientation="horizontal"
     android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
     app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+
+    <TextView
+        android:id="@+id/tv_me"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginRight="@dimen/toolbar_text_right_margin"
+        android:text="@string/app_tab_me"
+        android:textSize="@dimen/toolbar_text_size" />
+
+    <TextView
+        android:id="@+id/tv_music"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginRight="@dimen/toolbar_text_right_margin"
+        android:text="@string/app_tab_music"
+        android:textSize="@dimen/toolbar_select_text_size" />
+
+    <TextView
+        android:id="@+id/tv_discovery"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/app_tab_discovery"
+        android:textSize="@dimen/toolbar_text_size" />
+
 
 </android.support.v7.widget.Toolbar>

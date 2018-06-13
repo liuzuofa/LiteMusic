@@ -5,4 +5,6 @@
     <string name="app_tab_music">音乐</string>
     <string name="app_tab_me">我的</string>
     <string name="app_tab_discovery">发现</string>
+    <string name="app_tab_play">播放</string>
+    <string name="app_tab_music_info">音乐信息</string>
 </resources>
