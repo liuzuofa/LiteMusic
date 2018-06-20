@@ -5,21 +5,27 @@
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".activity.MainActivity">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
         <include layout="@layout/toolbar" />
 
         <android.support.v4.view.ViewPager
             android:id="@+id/view_pager"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:layout_below="@+id/toolbar" />
 
-    </LinearLayout>
+        <include
+            layout="@layout/include_play"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/fragment_play_layout_height"
+            android:layout_alignParentBottom="true" />
+
+    </RelativeLayout>
 
     <android.support.design.widget.NavigationView
         android:layout_width="match_parent"

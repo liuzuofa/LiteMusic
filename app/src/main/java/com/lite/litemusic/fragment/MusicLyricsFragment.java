@@ -9,10 +9,11 @@ import android.view.ViewGroup;
 
 import com.lite.litemusic.R;
 
-public class PlayFragment extends Fragment{
+public class MusicLyricsFragment extends Fragment {
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_play, null);
+        return inflater.inflate(R.layout.fragment_music_lyrics, container,false);
     }
 }

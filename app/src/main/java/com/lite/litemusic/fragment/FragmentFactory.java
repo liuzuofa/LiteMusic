@@ -6,8 +6,9 @@ public class FragmentFactory {
     private MeFragment mMeFragment;
     private MusicFragment mMusicFragment;
     private DiscoveryFragment mDiscoveryFragment;
-    private PlayFragment mPlayFragment;
     private MusicInfoFragment mMusicInfoFragment;
+    private MusicAlbumFragment mMusicAlbumFragment;
+    private MusicLyricsFragment mMusicLyricsFragment;
 
     public static FragmentFactory newInstance() {
         if (mFragmentFactory == null) {
@@ -53,17 +54,6 @@ public class FragmentFactory {
         return mDiscoveryFragment;
     }
 
-    public PlayFragment getPlayFragment() {
-        if (mPlayFragment == null) {
-            synchronized (FragmentFactory.class) {
-                if (mPlayFragment == null) {
-                    mPlayFragment = new PlayFragment();
-                }
-            }
-        }
-        return mPlayFragment;
-    }
-
     public MusicInfoFragment getMusicInfoFragment() {
         if (mMusicInfoFragment == null) {
             synchronized (FragmentFactory.class) {
@@ -73,5 +63,27 @@ public class FragmentFactory {
             }
         }
         return mMusicInfoFragment;
+    }
+
+    public MusicAlbumFragment getMusicAlbumFragment() {
+        if (mMusicAlbumFragment == null) {
+            synchronized (FragmentFactory.class) {
+                if (mMusicAlbumFragment == null) {
+                    mMusicAlbumFragment = new MusicAlbumFragment();
+                }
+            }
+        }
+        return mMusicAlbumFragment;
+    }
+
+    public MusicLyricsFragment getMusicLyricsFragment() {
+        if (mMusicLyricsFragment == null) {
+            synchronized (FragmentFactory.class) {
+                if (mMusicLyricsFragment == null) {
+                    mMusicLyricsFragment = new MusicLyricsFragment();
+                }
+            }
+        }
+        return mMusicLyricsFragment;
     }
 }

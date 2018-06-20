@@ -9,10 +9,10 @@ import android.view.ViewGroup;
 
 import com.lite.litemusic.R;
 
-public class MusicFragment extends Fragment{
+public class MusicFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_music, null);
+        return inflater.inflate(R.layout.fragment_music, container, false);
     }
 }
