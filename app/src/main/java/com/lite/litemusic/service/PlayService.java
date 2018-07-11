@@ -4,7 +4,9 @@ import android.app.Service;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Binder;
+import android.os.Handler;
 import android.os.IBinder;
+import android.os.Message;
 
 public class PlayService extends Service {
 
@@ -36,30 +38,52 @@ public class PlayService extends Service {
         return mBinder;
     }
 
+
     /**
-     * 播放或者暂停
+     * 播放
      */
-    public void pause() {
-        if (isPlaying()) {
-
-        } else {
-
-        }
+    public void start() {
+        mPlayer.start();
     }
 
+    /**
+     * 停止
+     */
+    public void stop() {
+        mPlayer.stop();
+    }
+
+    /**
+     * 暂停
+     */
+    public void pause() {
+        if (!isPlaying()) {
+            return;
+        }
+        mPlayer.pause();
+    }
+
+    /**
+     * 继续
+     */
+    private void resume() {
+        if (isPlaying()) {
+            return;
+        }
+
+    }
+
+    /**
+     * 是否正在播放音乐
+     *
+     * @return true or false
+     */
     private boolean isPlaying() {
         return mPlayer.isPlaying();
     }
 
-    public void start() {
 
-    }
-
-    public void stop() {
-
-    }
-
-    private static class PlayServiceBinder extends Binder {
+    class PlayServiceBinder extends Binder {
 
         private PlayService mPlayService;
 

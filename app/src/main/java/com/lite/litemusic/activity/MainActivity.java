@@ -52,10 +52,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
     private final int FRAGMENT_ME_POSITION = 0;
     private final int FRAGMENT_MUSIC_POSITION = 1;
     private final int FRAGMENT_DISCOVERY_POSITION = 2;
-    private final static String[] permissions = {
-            Manifest.permission.WRITE_EXTERNAL_STORAGE,
-    };
-    private final static int PERMISSION_REQUEST = 1;
+
 
 
     @Override
@@ -76,7 +73,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
         mLinearLayout.setOnClickListener(this);
         initFragment();
         initViewPager();
-        grantPermission();
     }
 
     private void initFragment() {
@@ -156,25 +152,5 @@ public class MainActivity extends BaseActivity implements View.OnClickListener, 
     @Override
     public void onPageScrollStateChanged(int state) {
 
-    }
-
-    private void grantPermission() {
-        if (ContextCompat.checkSelfPermission(MainActivity.this,
-                Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED)
-            Log.d(TAG, "grantPermission: " + Build.VERSION.SDK_INT);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            ActivityCompat.requestPermissions(MainActivity.this, permissions, PERMISSION_REQUEST);
-        }
-    }
-
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        if (requestCode == PERMISSION_REQUEST) {
-            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-
-            } else {
-                finish();
-            }
-        }
     }
 }

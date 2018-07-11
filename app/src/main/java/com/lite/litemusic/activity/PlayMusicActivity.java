@@ -1,5 +1,8 @@
 package com.lite.litemusic.activity;
 
+import android.content.ComponentName;
+import android.content.ServiceConnection;
+import android.os.IBinder;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 
@@ -10,6 +13,7 @@ import com.lite.litemusic.fragment.FragmentFactory;
 import com.lite.litemusic.fragment.MusicAlbumFragment;
 import com.lite.litemusic.fragment.MusicInfoFragment;
 import com.lite.litemusic.fragment.MusicLyricsFragment;
+import com.lite.litemusic.service.PlayService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,6 +25,19 @@ public class PlayMusicActivity extends BaseActivity {
     private MusicAlbumFragment mMusicAlbumFragment;
     private MusicLyricsFragment mMusicLyricsFragment;
     private List<Fragment> mFragmentList = new ArrayList<>();
+    private PlayService mPlayService;
+
+    private ServiceConnection serviceConnection = new ServiceConnection() {
+        @Override
+        public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
+            mPlayService =(PlayService)
+        }
+
+        @Override
+        public void onServiceDisconnected(ComponentName componentName) {
+
+        }
+    };
 
     @Override
     public int getContentView() {
@@ -43,4 +60,6 @@ public class PlayMusicActivity extends BaseActivity {
         mFragmentList.add(mMusicAlbumFragment);
         mFragmentList.add(mMusicLyricsFragment);
     }
+
+
 }
