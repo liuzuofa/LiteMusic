@@ -15,6 +15,7 @@ import java.util.List;
 
 public class PlayService extends Service {
 
+
     private static final String TAG = "PlayService";
     private PlayServiceBinder mBinder;
     private List<Audio> mAudioList;
@@ -22,6 +23,8 @@ public class PlayService extends Service {
      * 播放器
      */
     private MediaPlayer mPlayer;
+    private PrepareListener mPrepareListener;
+    private CompletionListener mCompletionListener;
 
     public PlayService() {
     }
@@ -31,6 +34,8 @@ public class PlayService extends Service {
         super.onCreate();
         mBinder = new PlayServiceBinder(this);
         initMediaPlayer();
+        mPrepareListener = new PrepareListener();
+        mCompletionListener = new CompletionListener();
     }
 
     private void initMediaPlayer() {
@@ -50,6 +55,7 @@ public class PlayService extends Service {
             mPlayer.reset();
             mPlayer.setDataSource(mAudioList.get(position).getFileUrl());
             mPlayer.prepareAsync();
+            mPlayer.setOnPreparedListener(mPrepareListener);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -60,6 +66,7 @@ public class PlayService extends Service {
      */
     public void start() {
         mPlayer.start();
+        mPlayer.setOnCompletionListener(mCompletionListener);
     }
 
     /**
@@ -111,4 +118,21 @@ public class PlayService extends Service {
             return mPlayService;
         }
     }
+
+    private class PrepareListener implements MediaPlayer.OnPreparedListener {
+
+        @Override
+        public void onPrepared(MediaPlayer mediaPlayer) {
+            start();
+        }
+    }
+
+    private class CompletionListener implements MediaPlayer.OnCompletionListener {
+
+        @Override
+        public void onCompletion(MediaPlayer mediaPlayer) {
+
+        }
+    }
+
 }

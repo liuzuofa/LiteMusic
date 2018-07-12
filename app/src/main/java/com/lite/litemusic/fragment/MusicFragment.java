@@ -128,6 +128,6 @@ public class MusicFragment extends Fragment implements ListViewAdapter.Listener{
 
     @Override
     public void OnMusicItemClick(int position) {
-        mPlayService.
+        mPlayService.prepare(mAudioList,position);
     }
 }
