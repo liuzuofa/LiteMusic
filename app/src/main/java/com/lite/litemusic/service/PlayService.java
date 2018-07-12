@@ -8,10 +8,16 @@ import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
 
+import com.lite.litemusic.model.Audio;
+
+import java.io.IOException;
+import java.util.List;
+
 public class PlayService extends Service {
 
     private static final String TAG = "PlayService";
     private PlayServiceBinder mBinder;
+    private List<Audio> mAudioList;
     /**
      * 播放器
      */
@@ -38,6 +44,16 @@ public class PlayService extends Service {
         return mBinder;
     }
 
+    public void prepare(List<Audio> audioList,int position) {
+        mAudioList = audioList;
+        try {
+            mPlayer.reset();
+            mPlayer.setDataSource(mAudioList.get(position).getFileUrl());
+            mPlayer.prepareAsync();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     /**
      * 播放
@@ -83,7 +99,7 @@ public class PlayService extends Service {
     }
 
 
-    class PlayServiceBinder extends Binder {
+    public class PlayServiceBinder extends Binder {
 
         private PlayService mPlayService;
 

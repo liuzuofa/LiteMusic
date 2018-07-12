@@ -27,17 +27,7 @@ public class PlayMusicActivity extends BaseActivity {
     private List<Fragment> mFragmentList = new ArrayList<>();
     private PlayService mPlayService;
 
-    private ServiceConnection serviceConnection = new ServiceConnection() {
-        @Override
-        public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-            mPlayService =(PlayService)
-        }
 
-        @Override
-        public void onServiceDisconnected(ComponentName componentName) {
-
-        }
-    };
 
     @Override
     public int getContentView() {
